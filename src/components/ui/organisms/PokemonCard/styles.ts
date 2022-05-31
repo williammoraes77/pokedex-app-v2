@@ -4,7 +4,7 @@ import { SvgUri } from 'react-native-svg';
 
 export const Container = styled.View`
   width: ${RFValue(142)}px;
-  height: ${RFValue(196)}px;
+  height: ${RFValue(186)}px;
   border-radius: ${RFValue(16)}px;
   background-color: ${({ theme }) => theme.colors.card};
   padding: ${RFValue(9)}px;
@@ -16,30 +16,11 @@ export const ImageContent = styled.View`
   justify-content: center;
 `;
 
-export const PokemonCardImage = styled.Image`
-  width: ${RFValue(142)}px;
-  height: ${RFValue(120)}px;
-`;
-
-export const Footer = styled.View`
-  flex: 1;
-  padding: ${RFValue(10)}px;
-  border-radius: ${RFValue(13)}px;
-  border-top-left-radius: ${RFValue(15)}px;
-  border-top-right-radius: ${RFValue(15)}px;
-  background-color: ${({ theme }) => theme.colors.card};
-`;
-
-export const InfoContent = styled.View`
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
+export const Footer = styled.View``;
 
 export const NameText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
-  color: ${({ theme }) => theme.colors.line};
+  color: ${({ theme }) => theme.colors.black};
   font-size: ${RFValue(15)}px;
   text-transform: capitalize;
 `;

@@ -5,6 +5,7 @@ export default {
     line: '#A4A4A4',
     red: '#EC1D24',
     card: '#FFFFFF',
+    black: '#000000',
   },
 
   fonts: {
