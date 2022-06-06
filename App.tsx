@@ -10,6 +10,7 @@ import { Routes } from '@src/routes';
 import theme from '@src/styles/theme';
 import { ThemeProvider } from 'styled-components';
 import { StatusBar } from 'react-native';
+import { PokemonProvider } from '@src/hooks/pokemon';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -23,8 +24,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar barStyle={'light-content'} />
-      <Routes />
+      <PokemonProvider>
+        <StatusBar barStyle={'light-content'} />
+        <Routes />
+      </PokemonProvider>
     </ThemeProvider>
   );
 }

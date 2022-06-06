@@ -1,18 +1,22 @@
+import React, { useEffect } from 'react';
 import { Header } from '@src/components/Header';
 import { Input } from '@src/components/Input';
 import theme from '@src/styles/theme';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import React from 'react';
-import { Alert, Keyboard, KeyboardAvoidingView } from 'react-native';
 
-import { Container, PageContent } from './styles';
+import { Container, PageContent, ListContent } from './styles';
 import { PokemonList } from '@src/components/ui/templates/PokemonList';
-import { PokemonCard } from '@src/components/ui/organisms/PokemonCard';
+import { usePokemon } from '@src/hooks/pokemon';
 
 export function Home() {
+  const { loadPokemons, pokemons } = usePokemon();
+
   function handleTextChange() {}
 
   function handleGetCharacters() {}
+
+  useEffect(() => {
+    loadPokemons();
+  }, []);
 
   return (
     <Container>
@@ -27,8 +31,9 @@ export function Home() {
           autoCapitalize="none"
           autoCorrect={false}
         />
-        {/* <PokemonList /> */}
-        <PokemonCard />
+        <ListContent>
+          <PokemonList />
+        </ListContent>
       </PageContent>
     </Container>
   );

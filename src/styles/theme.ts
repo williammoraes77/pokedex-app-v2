@@ -3,6 +3,7 @@ export default {
     title: '#FFF',
     header: '#E54042',
     line: '#A4A4A4',
+    background: '#E1DFDF',
     red: '#EC1D24',
     card: '#FFFFFF',
     black: '#000000',

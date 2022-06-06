@@ -2,7 +2,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 import { SvgUri } from 'react-native-svg';
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   width: ${RFValue(142)}px;
   height: ${RFValue(186)}px;
   border-radius: ${RFValue(16)}px;
@@ -15,8 +15,6 @@ export const ImageContent = styled.View`
   align-items: center;
   justify-content: center;
 `;
-
-export const Footer = styled.View``;
 
 export const NameText = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
@@ -34,14 +32,6 @@ export const IdText = styled.Text`
   text-align: right;
   padding-right: ${RFValue(5)}px;
   padding-top: ${RFValue(10)}px;
-`;
-
-export const TypeContent = styled.View`
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: ${RFValue(10)}px;
 `;
 
 export const TypeTitle = styled.Text`

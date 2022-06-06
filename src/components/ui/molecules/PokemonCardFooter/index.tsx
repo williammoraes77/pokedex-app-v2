@@ -5,16 +5,28 @@ import { Container, InfoContent, TypeContent } from './styles';
 import { PokemonCardTitle } from '../../atoms/PokemonCardTitle';
 import { PokemonCardType } from '../../atoms/PokemonCardType';
 
-export function PokemonCardFooter() {
+interface Props {
+  title: string;
+  types: {
+    type: {
+      name: string;
+    };
+  }[];
+}
+
+export function PokemonCardFooter({ title, types }: Props) {
   return (
     <Container>
       <InfoContent>
-        <PokemonCardTitle title="Bulba" />
+        <PokemonCardTitle title={title} />
       </InfoContent>
-      <TypeContent>
-        <PokemonCardType type="Normal" />
-        <PokemonCardType type="Planta" />
-      </TypeContent>
+      {types && (
+        <TypeContent>
+          {types.map((type, index) => (
+            <PokemonCardType type={type.type.name} key={index} />
+          ))}
+        </TypeContent>
+      )}
     </Container>
   );
 }
