@@ -10,18 +10,16 @@ interface Props {
   title: string;
   type: string;
   image_url: string;
+  handlePress: () => void;
 }
 
-export function PokemonCard({ title, type, image_url }: Props) {
+export function PokemonCard({ title, type, image_url, handlePress }: Props) {
   const [pokemon, setPokemon] = useState<PokemonProps>({} as PokemonProps);
 
   async function loadPokemon(name: string) {
     try {
       const response = await getPokemon(title);
-      // console.log(response.data);
-      // console.log(response.data.sprites.other.home.front_default);
-      // console.log(response.data.types[0].type.name);
-      // console.log(response.data.types[0].type.name);
+
       setPokemon(response.data);
     } catch (error) {}
   }
@@ -30,7 +28,7 @@ export function PokemonCard({ title, type, image_url }: Props) {
     loadPokemon(title);
   }, []);
   return (
-    <Container>
+    <Container onPress={handlePress}>
       <ImageContent>
         <PokemonCardImage image_url={pokemon.sprites?.other.home.front_default} />
       </ImageContent>

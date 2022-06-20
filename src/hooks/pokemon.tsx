@@ -20,7 +20,9 @@ export interface PokemonProps {
     type: {
       name: string;
     };
-  };
+  }[];
+  height?: number;
+  weight?: number;
 }
 
 interface IPokemonContextData {
@@ -28,6 +30,7 @@ interface IPokemonContextData {
   pokemons: PokemonProps[];
   loadPokemons(name?: string): void;
   loadPokemon(name?: string): void;
+  clearPokemon: () => void;
 }
 
 const PokemonContext = createContext({} as IPokemonContextData);
@@ -39,7 +42,7 @@ function PokemonProvider({ children }: PokemonProviderProps) {
   async function loadPokemons(name: string) {
     try {
       const response = await getPokemons(name);
-      // console.log(response);
+
       setPokemons(response.data.results);
     } catch (error) {}
   }
@@ -47,7 +50,7 @@ function PokemonProvider({ children }: PokemonProviderProps) {
   async function loadPokemon(name: string) {
     try {
       const response = await getPokemon(name);
-      // console.log(response.data.sprites.other.home.front_default);
+
       setPokemon(response.data);
     } catch (error) {}
   }
@@ -59,11 +62,16 @@ function PokemonProvider({ children }: PokemonProviderProps) {
         pokemon,
         loadPokemons,
         loadPokemon,
+        clearPokemon,
       }}
     >
       {children}
     </PokemonContext.Provider>
   );
+
+  function clearPokemon() {
+    setPokemon({} as PokemonProps);
+  }
 }
 
 function usePokemon() {
