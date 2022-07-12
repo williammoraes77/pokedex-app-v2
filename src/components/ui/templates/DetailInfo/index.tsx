@@ -2,7 +2,7 @@ import { PokemonEvolution } from '@src/components/PokemonEvolution';
 import { PokemonType } from '@src/components/PokemonType';
 import { usePokemon } from '@src/hooks/pokemon';
 import React, { useState } from 'react';
-import { DetailAbout } from '../../molecules/DetailAbout';
+import { DetailAbout } from '../../organisms/DetailAbout';
 
 import {
   Container,

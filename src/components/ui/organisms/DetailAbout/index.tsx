@@ -1,6 +1,7 @@
 import { PokemonType } from '@src/components/PokemonType';
 import { usePokemon } from '@src/hooks/pokemon';
 import React from 'react';
+import { RowDetailAbout } from '../../molecules/RowDetailAbout';
 
 import {
   Container,
@@ -18,18 +19,9 @@ export function DetailAbout() {
   const { pokemon } = usePokemon();
   return (
     <Container>
-      <Row>
-        <Title>Name</Title>
-        <InfoText>{pokemon?.name}</InfoText>
-      </Row>
-      <Row>
-        <Title>Height</Title>
-        <InfoText>{pokemon.height! / 10}m</InfoText>
-      </Row>
-      <Row>
-        <Title>Weight</Title>
-        <InfoText>{pokemon.weight! / 10} Kg</InfoText>
-      </Row>
+      <RowDetailAbout title="Name" data={pokemon?.name} />
+      <RowDetailAbout title="Height" data={`${pokemon.height! / 10}m`.toString()} />
+      <RowDetailAbout title="Weight" data={`${pokemon.weight! / 10}kg`.toString()} />
       <Row>
         <Title>Abilities</Title>
         <InfoButton>
@@ -43,7 +35,7 @@ export function DetailAbout() {
         <TypesContent>
           {pokemon.types.map((type, index) => (
             <>
-              <PokemonType title={pokemon.types[index].type.name} />
+              <PokemonType title={pokemon.types[index].type.name} key={index} />
               <Separator />
             </>
           ))}
