@@ -8,6 +8,7 @@ interface Props {
   title: string;
 }
 
+
 export function PokemonType({ title }: Props) {
   const typeColor = getColorType(title);
 
